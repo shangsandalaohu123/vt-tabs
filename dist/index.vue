@@ -1,8 +1,7 @@
-<style src="./style.css" scoped></style>
+<style src="./style.css"></style>
 <script>
     import Vue from 'vue'
     import TabItem from './item.vue'
-    Vue.component('TabItem', TabItem)
     let len
     export default{
         name: 'tabs',
