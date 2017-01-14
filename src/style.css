@@ -26,12 +26,13 @@
     margin-bottom: -1px;
     position: relative;
 }
-.ui-tabs-item--active{
+.ui-tabs-item.is-active{
     background-color: #fff;
     border-right-color: #d3dce6;
     border-left-color: #d3dce6;
 }
-.ui-tabs-content__hidden{
+.ui-tabs-content__hidden,
+.ui-tabs-title__hidden{
     display: none;
 }
 .ui-tabs-panel__content{

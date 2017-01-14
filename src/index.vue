@@ -2,44 +2,62 @@
 <script>
     import Vue from 'vue'
     import TabItem from './item.vue'
-    let len
-    export default{
+    export default {
         name: 'tabs',
-        props: {
-            closable: Boolean
-        },
-        data(){
+        data() {
             return {
-                options: []
+                items: []
             }
         },
-        render(h){
+        render(h) {
+            const headerItems = this.items.map((item, index) => {
+                item.index = index
+                return (
+                    <li on-click={(ev) => this.select(index, ev)}
+                        class={{
+                            'ui-tabs-item':           true,
+                            'is-active':              item.activate,
+                            'ui-tabs-item--disabled': item.disabled
+                        }}
+                        ref="tabs-item"
+                        refInFor
+                        >{item.$slots.title}
+                    </li> 
+                )
+            })
             return (
                 <div class="ui-tabs">
-                    <ul class="ui-tabs-header">{this.$slots.default}</ul>
+                    <ul class="ui-tabs-header">{headerItems}</ul>
                     <ul class="ui-tabs-panel">
-                        {
-                            this.options.map((item, idx) => {
-                                return (
-                                    <li data-ref="tabs-content" class={{'ui-tabs-panel__content': true, 'is-selected': item.selected}}
-                                >{item.$slots.default}</li>
-                                )
-                            })
-                        }
+                        {this.$slots.default}
                     </ul>
                 </div>
             )
         },
+
         methods: {
-            select(idx) {
-                Array.prototype.forEach.call(document.querySelectorAll('[data-ref="tabs-content"]'), (item, index) => {
-                    if(index == idx) {
-                        item.classList.add('is-selected')
+            addItem(item) {
+                this.items.push(item)
+            },
+            select(idx, e) {
+                let item = this.items[idx]
+                if(item && item.disabled) return
+                
+                this.setCurrentHeaderItem(idx)
+                this.setCurrentContent(idx)
+                this.$emit('change', idx)
+            },
+            setCurrentHeaderItem(idx){
+                this.$refs['tabs-item'].forEach((item, index) => {
+                    if (index == idx) {
+                        item.classList.add('is-active')
                     } else {
-                        item.classList.remove('is-selected')
+                        item.classList.remove('is-active')
                     }
                 })
-                this.$emit('change', idx)
+            },
+            setCurrentContent(idx){
+                this.items.forEach((item, index) => item.activate = idx == index)
             }
         }
     }
