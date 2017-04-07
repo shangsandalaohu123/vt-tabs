@@ -25,6 +25,9 @@
     color: #8492a6;
     margin-bottom: -1px;
     position: relative;
+    text-align: center;
+    user-select: none;
+    -webkit-touch-callout: none; /* iOS Safari */
 }
 .ui-tabs-item.is-active{
     background-color: #fff;
@@ -35,6 +38,9 @@
 .ui-tabs-title__hidden{
     display: none;
 }
+.ui-tabs-content{
+    padding: 14px;
+}
 .ui-tabs-panel__content{
     padding:10px;
     display: none;
@@ -43,7 +49,22 @@
 .ui-tabs-panel__content.is-selected{
     display: block;
 }
-.ui-tabs-item--disabled{
+.ui-tabs-item.is-disabled{
     cursor: not-allowed;
     color: #bac2cd;
+}
+.ui-tabs-item--closable{
+    cursor: pointer;
+    background-color: #e4e7ea;
+    width: 18px;
+    height: 18px;
+    position: relative;
+    top:4px;
+    line-height: 16px;
+    margin-left:2px;
+    text-align: center;
+    border-radius: 50%;
+    display: inline-block;    
+    transition: all ease-in-out 0.2s;
+    overflow: hidden;
 }

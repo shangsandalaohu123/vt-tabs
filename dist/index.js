@@ -5,15 +5,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Tabs = exports.TabItem = undefined;
 
-var _item = require('./item.vue');
+var _TabItem = require('./TabItem.vue');
 
-var _item2 = _interopRequireDefault(_item);
+var _TabItem2 = _interopRequireDefault(_TabItem);
 
-var _index = require('./index.vue');
+var _Tab = require('./Tab.vue');
 
-var _index2 = _interopRequireDefault(_index);
+var _Tab2 = _interopRequireDefault(_Tab);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.TabItem = _item2.default;
-exports.Tabs = _index2.default;
+exports.TabItem = _TabItem2.default;
+exports.Tabs = _Tab2.default;
