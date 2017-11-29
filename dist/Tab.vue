@@ -52,9 +52,9 @@
           <div class="ui-tabs-header">
             <TabNav { ...navProps }></TabNav>
           </div>
-          <ul class="ui-tabs-panel">
-            {this.$slots.default}  
-          </ul>
+          <div class="ui-tabs-panel">
+            {this.$slots.default}
+          </div>
         </div>
       )
     },

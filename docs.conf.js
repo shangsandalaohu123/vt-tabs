@@ -1,7 +1,7 @@
 var path = require('path')
 var webpack = require('webpack')
 module.exports = {
-    port: 9999,
+    port: 9090,
     webpack: {
         resolve: {
             alias: {
