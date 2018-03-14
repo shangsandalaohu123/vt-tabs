@@ -1,6 +1,6 @@
 {
   "name": "vt-tabs",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/vue-tools/vt-tabs"
@@ -70,11 +70,11 @@
     "webpack-dev-server": "^2.4.1"
   },
   "scripts": {
+    "prepublish": "npm run compile",
     "codecov": "./node_modules/.bin/codecov",
     "copy": "rm -fr dist && cp -rf src dist",
     "docs": "./node_modules/.bin/vue-docs start",
     "docs:build": "rm -fr docs && ./node_modules/.bin/vue-docs build && node gh-pages.js",
-    "compile": "npm run copy && node_modules/.bin/babel dist -d dist",
-    "test": "cross-env BABEL_ENV=test ./node_modules/karma/bin/karma start ./tests/karma.conf.js"
+    "compile": "npm run copy && node_modules/.bin/babel dist -d dist"
   }
 }

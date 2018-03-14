@@ -29,7 +29,7 @@
         }
       }
     },
-    
+
     render(h) {
       const {
         navs,
@@ -46,14 +46,16 @@
           onTabRemove
         }
       }
-      
+
       return (
         <div class="ui-tabs">
           <div class="ui-tabs-header">
             <TabNav { ...navProps }></TabNav>
           </div>
-          <div class="ui-tabs-panel">
-            {this.$slots.default}
+          <div class="ui-tabs-panel__wrapper">
+            <div class="ui-tabs-panel">
+              {this.$slots.default}
+            </div>
           </div>
         </div>
       )
@@ -82,6 +84,6 @@
     components: {
       TabNav
     }
-      
+
   }
 </script>

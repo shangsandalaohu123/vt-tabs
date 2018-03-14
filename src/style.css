@@ -1,6 +1,8 @@
 .ui-tabs{
     border: 1px solid #d3dce6;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.12),0 0 6px 0 rgba(0,0,0,.04);
+    display: flex;
+    flex-flow: column;
 }
 .ui-tabs,
 .ui-tabs-header,
@@ -41,6 +43,13 @@
 .ui-tabs-content{
     padding: 14px;
 }
+.ui-tabs-panel__wrapper{
+  flex: 1;
+  overflow-x: auto;
+}
+.ui-tabs-panel{
+  height: 100%;
+}
 .ui-tabs-panel__content{
     padding:10px;
     display: none;
@@ -64,7 +73,7 @@
     margin-left:2px;
     text-align: center;
     border-radius: 50%;
-    display: inline-block;    
+    display: inline-block;
     transition: all ease-in-out 0.2s;
     overflow: hidden;
 }
